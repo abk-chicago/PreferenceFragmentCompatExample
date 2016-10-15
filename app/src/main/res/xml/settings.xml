@@ -24,4 +24,13 @@
 
     </PreferenceCategory>
 
+    <com.feliperoriz.settingsexample.CustomCategoryPreference
+        android:title="Blablabla">
+
+        <com.feliperoriz.settingsexample.CustomPreference
+            android:title="Test"/>
+
+    </com.feliperoriz.settingsexample.CustomCategoryPreference>
+
+
 </PreferenceScreen>
