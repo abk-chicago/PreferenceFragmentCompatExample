@@ -13,13 +13,6 @@ import android.view.View;
 public class SettingsTasksFragment extends PreferenceFragmentCompat {
 
     @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        // Set the default white background in the view so as to avoid transparency
-        view.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.background_material_light));
-    }
-
-    @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
         setPreferencesFromResource(R.xml.settings_tasks, rootKey);
     }

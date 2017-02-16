@@ -4,6 +4,8 @@
     android:title="Tasks">
 
     <SwitchPreference
-        android:title="Tasks" />
+        android:key="tasks_key"
+        android:title="Tasks"
+        android:persistent="true"/>
 
 </PreferenceScreen>

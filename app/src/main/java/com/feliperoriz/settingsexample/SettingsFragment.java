@@ -14,15 +14,6 @@ import android.view.ViewGroup;
 
 public class SettingsFragment extends PreferenceFragmentCompat {
 
-    public static final String FRAGMENT_TAG = "SETTINGS_FRAGMENT_TAG";
-
-    @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        // Set the default white background in the view so as to avoid transparency
-        view.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.background_material_light));
-    }
-
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
         setPreferencesFromResource(R.xml.settings, rootKey);

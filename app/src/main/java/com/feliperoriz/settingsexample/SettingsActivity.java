@@ -1,11 +1,13 @@
 package com.feliperoriz.settingsexample;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.preference.PreferenceFragmentCompat;
+import android.support.v7.preference.PreferenceManager;
 import android.support.v7.preference.PreferenceScreen;
 
 /**
@@ -19,17 +21,12 @@ public class SettingsActivity extends AppCompatActivity implements PreferenceFra
 
         setContentView(R.layout.fragment_settings);
 
-        Fragment fragment = getSupportFragmentManager().findFragmentByTag(SettingsFragment.FRAGMENT_TAG);
-        if (fragment == null) {
-            fragment = new SettingsFragment();
-        }
-
-        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-        ft.replace(R.id.container, fragment, SettingsFragment.FRAGMENT_TAG);
-        ft.commit();
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.container, new SettingsFragment())
                 .commit();
+
+        SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
+        boolean isTasksOn = sharedPref.getBoolean("tasks_key", false);
     }
 
     @Override
@@ -45,14 +42,14 @@ public class SettingsActivity extends AppCompatActivity implements PreferenceFra
                 break;
         }
 
-
-        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         Bundle args = new Bundle();
         args.putString(PreferenceFragmentCompat.ARG_PREFERENCE_ROOT, pref.getKey());
         fragment.setArguments(args);
-        ft.add(R.id.container, fragment, pref.getKey());
-        ft.addToBackStack(pref.getKey());
-        ft.commit();
+
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.container, fragment, pref.getKey())
+                .addToBackStack(pref.getKey())
+                .commit();
 
         return true;
     }

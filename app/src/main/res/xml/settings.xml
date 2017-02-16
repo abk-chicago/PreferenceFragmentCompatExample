@@ -4,11 +4,11 @@
     android:title="Settings">
 
     <PreferenceCategory
-        android:title="Inbox">
+        android:title="Inbox Header">
 
         <PreferenceScreen
             android:key="key_settings_inbox"
-            android:title="Twitter" >
+            android:title="Twitter Subscreen">
 
             <Preference />
 
@@ -16,7 +16,7 @@
 
         <PreferenceScreen
             android:key="key_settings_tasks"
-            android:title="Tasks" >
+            android:title="Tasks Subscreen">
 
             <Preference />
 
@@ -25,10 +25,10 @@
     </PreferenceCategory>
 
     <com.feliperoriz.settingsexample.CustomCategoryPreference
-        android:title="Blablabla">
+        android:title="Header">
 
         <com.feliperoriz.settingsexample.CustomPreference
-            android:title="Test"/>
+            android:title="Custom Preference"/>
 
     </com.feliperoriz.settingsexample.CustomCategoryPreference>
 
